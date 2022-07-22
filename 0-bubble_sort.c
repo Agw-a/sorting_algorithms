@@ -28,21 +28,19 @@ void swapValues(int *n, int *i)
 void bubble_sort(int *array, size_t size)
 {
 	size_t idx, compIdx;
-	int checkSwap = 1;
 
 	if (!array)
 		return;
-	while (checkSwap != 0)
+	for (idx = 0; idx < size - 1; idx++)
 	{
-		checkSwap = 0;
 
-		for (idx = 0; idx < size - 1; ++idx)
+		for (compIdx = 0; compIdx < size - idx - 1; ++compIdx)
 		{
-			swapValues(array[compIdx], array[compIdx + 1]);
+			if (array[compIdx] > array [compIdx + 1])
+			{
+			swapValues(&array[compIdx], &array[compIdx + 1]);
 			print_array(array, size);
+			}
 		}
-		idx++;
-		if (checkSwap == 0)
-			break;
 	}
 }
